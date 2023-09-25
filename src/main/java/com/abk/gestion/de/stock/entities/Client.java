@@ -14,13 +14,19 @@ import java.util.List;
 @Table(name = "client")
 public class Client extends AbstractEntity {
     private String nom ;
+
     private String prenom ;
+
     private String photo;
+
     private String email ;
+
     private  Long numTel ;
 
     @Embedded
     private Adresse adresse ;
+
+    private Long idEntreprise ;
 
     @OneToMany(mappedBy = "client")
     List<CommandeClient> commandeClients ;

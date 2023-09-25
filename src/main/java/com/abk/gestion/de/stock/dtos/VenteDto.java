@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VenteDto extends AbstractEntity {
+public class VenteDto {
     private Long id ;
 
 

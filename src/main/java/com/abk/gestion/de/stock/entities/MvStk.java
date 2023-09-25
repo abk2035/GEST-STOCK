@@ -18,6 +18,9 @@ public class MvStk extends AbstractEntity {
 
     private double quantite ;
 
+    private Long idEntreprise ;
+
+
     @ManyToOne
     @JoinColumn(name = "idArticle")
     private Article article ;

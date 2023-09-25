@@ -17,9 +17,13 @@ import java.util.List;
 @Table(name = "article")
 public class Article extends AbstractEntity {
     private  String codeArticle ;
+
     private String Designation;
+
     private String photo ;
+
     private double prixUnitaire;
+
     private  double tauxTva ;
 
     @ManyToOne

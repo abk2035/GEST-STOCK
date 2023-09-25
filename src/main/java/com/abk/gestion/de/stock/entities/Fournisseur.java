@@ -27,6 +27,9 @@ public class Fournisseur extends AbstractEntity {
     @Embedded
     private Adresse adresse ;
 
+    private Long idEntreprise ;
+
+
     @OneToMany(mappedBy = "fournisseur")
     List<CommandeFournisseur> commandeFournisseur ;
 }
