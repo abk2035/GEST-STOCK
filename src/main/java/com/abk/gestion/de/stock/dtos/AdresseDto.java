@@ -13,6 +13,7 @@ import javax.persistence.Embeddable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Embeddable
 public class AdresseDto {
 
     private String adresse1 ;

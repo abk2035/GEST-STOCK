@@ -18,10 +18,15 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "fournisseur")
 public class Fournisseur extends AbstractEntity {
+
     private String nom ;
+
     private String prenom ;
+
     private String photo;
+
     private String email ;
+
     private  Long numTel ;
 
     @Embedded

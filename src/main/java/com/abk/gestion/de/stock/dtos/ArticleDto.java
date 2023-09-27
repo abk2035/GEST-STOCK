@@ -1,11 +1,9 @@
 package com.abk.gestion.de.stock.dtos;
 
-import com.abk.gestion.de.stock.entities.Category;
-import com.abk.gestion.de.stock.entities.LigneCommandeClient;
-import com.abk.gestion.de.stock.entities.LigneCommandeFournisseur;
-import com.abk.gestion.de.stock.entities.MvStk;
+import com.abk.gestion.de.stock.entities.*;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.beans.BeanUtils;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,9 +16,15 @@ public class ArticleDto {
     private Long id ;
 
     private  String codeArticle ;
-    private String Designation;
+
+    private String designation;
+
     private String photo ;
-    private double prixUnitaire;
+
+    private double prixUnitaireHt;
+
+    private double prixUnitaireTtc;
+
     private  double tauxTva ;
 
 
@@ -31,4 +35,17 @@ public class ArticleDto {
     List<LigneCommandeFournisseur> ligneCommandeFournisseurs ;
 
     List<MvStk> mvStks ;
+
+    public static ArticleDto fromArticle (Article article){
+        return  ArticleDto.builder()
+                .id(article.getId())
+                .codeArticle(article.getCodeArticle())
+                .designation(article.getDesignation())
+                .build() ;
+    }
+    public static Article fromArticleDto(ArticleDto articleDto){
+        Article article = new Article() ;
+        BeanUtils.copyProperties(articleDto,article);
+        return article ;
+    }
 }

@@ -18,11 +18,13 @@ import java.util.List;
 public class Article extends AbstractEntity {
     private  String codeArticle ;
 
-    private String Designation;
+    private String designation;
 
     private String photo ;
 
-    private double prixUnitaire;
+    private double prixUnitaireHt;
+
+    private double prixUnitaireTtc;
 
     private  double tauxTva ;
 
