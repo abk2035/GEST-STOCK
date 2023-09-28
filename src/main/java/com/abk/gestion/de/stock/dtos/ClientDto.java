@@ -32,7 +32,7 @@ public class ClientDto {
     @JsonIgnore
     List<CommandeClient> commandeClients ;
 
-    public ClientDto fromClient(Client client){
+    public static ClientDto fromClient(Client client){
         return ClientDto.builder()
                 .id(client.getId())
                 .email(client.getEmail())
@@ -42,7 +42,7 @@ public class ClientDto {
                 .numTel(client.getNumTel())
                 .build();
     }
-    public Client fromClientDto(ClientDto clientDto){
+    public static Client fromClientDto(ClientDto clientDto){
         Client client = new Client() ;
         BeanUtils.copyProperties(clientDto,client);
         return  client;
