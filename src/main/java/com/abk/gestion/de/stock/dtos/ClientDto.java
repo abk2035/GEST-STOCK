@@ -29,12 +29,15 @@ public class ClientDto {
 
     private AdresseDto adresseDto ;
 
+    private Long idEntreprise ;
+
     @JsonIgnore
     List<CommandeClient> commandeClients ;
 
     public static ClientDto fromClient(Client client){
         return ClientDto.builder()
                 .id(client.getId())
+                .idEntreprise(client.getIdEntreprise())
                 .email(client.getEmail())
                 .photo(client.getPhoto())
                 .nom(client.getNom())

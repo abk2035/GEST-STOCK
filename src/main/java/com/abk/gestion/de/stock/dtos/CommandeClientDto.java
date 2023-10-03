@@ -23,6 +23,7 @@ public class CommandeClientDto {
 
     private Instant dateCommande ;
 
+    private Long idEntreprise ;
 
     private ClientDto client ;
 
@@ -31,6 +32,7 @@ public class CommandeClientDto {
     public static CommandeClientDto fromEntity(CommandeClient commandeClient){
       return  CommandeClientDto.builder()
               .id(commandeClient.getId())
+              .idEntreprise(commandeClient.getIdEntreprise())
               .code(commandeClient.getCode())
               .dateCommande(commandeClient.getDateCommande())
               .client(ClientDto.fromClient(commandeClient.getClient()))

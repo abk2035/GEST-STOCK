@@ -18,13 +18,12 @@ import java.time.Instant;
 @EntityListeners(AuditingEntityListener.class)
 public class AbstractEntity implements Serializable {
     @Id
-
     @GeneratedValue
     private Long id ;
 
     @JsonIgnore
     @CreationTimestamp
-    @Column(name = "creationDate",nullable = false)
+    @Column(name = "creationDate")
     private Instant creationDate ;
 
     @JsonIgnore

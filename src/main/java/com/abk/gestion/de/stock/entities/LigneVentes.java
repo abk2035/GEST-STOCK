@@ -1,7 +1,5 @@
-package com.abk.gestion.de.stock.dtos;
+package com.abk.gestion.de.stock.entities;
 
-import com.abk.gestion.de.stock.entities.AbstractEntity;
-import com.abk.gestion.de.stock.entities.Vente;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -10,14 +8,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Data
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class LigneVenteDto {
-    private Long id ;
-
+@EqualsAndHashCode(callSuper = true)
+@Table(name = "ligneVente")
+public class LigneVentes extends AbstractEntity {
+    @ManyToOne
+    @JoinColumn(name = "idVente")
     private Vente vente ;
+
+    @ManyToOne
+    @JoinColumn(name = "idArticle")
+    private  Article article ;
 
     private double quantite ;
 

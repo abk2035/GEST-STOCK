@@ -48,11 +48,6 @@ public class UtilisateurDto {
                 .adresse(utilisateur.getAdresse())
                 .build();
     }
-    public Client fromClientDto(ClientDto clientDto){
-        Client client = new Client() ;
-        BeanUtils.copyProperties(clientDto,client);
-        return  client;
-    }
 
     public  Utilisateur fromUtilisateurDto(UtilisateurDto utilisateurDto){
         Utilisateur utilisateur = new Utilisateur();

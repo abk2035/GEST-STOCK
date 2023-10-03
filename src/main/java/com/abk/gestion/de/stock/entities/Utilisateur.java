@@ -15,7 +15,9 @@ import java.util.List;
 @Table(name = "utilisateur")
 public class Utilisateur extends AbstractEntity{
     private String nom ;
+
     private String prenom ;
+
     private  String email ;
 
     private String motDePasse ;

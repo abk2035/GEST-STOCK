@@ -20,6 +20,7 @@ import java.util.List;
 public class CommandeClient extends AbstractEntity {
     private String code ;
     private Instant dateCommande ;
+    private Long idEntreprise ;
 
     @ManyToOne
     @JoinColumn(name = "idClient")

@@ -28,6 +28,8 @@ public class Article extends AbstractEntity {
 
     private  double tauxTva ;
 
+    private Long idEntreprise ;
+
     @ManyToOne
     @JoinColumn(name = "idCategory")
     private Category category ;
@@ -37,6 +39,9 @@ public class Article extends AbstractEntity {
 
     @OneToMany(mappedBy = "article")
     List<LigneCommandeFournisseur> ligneCommandeFournisseurs ;
+
+    @OneToMany(mappedBy = "article")
+    List<LigneVentes> ligneVentes ;
 
     @OneToMany(mappedBy ="article" )
     List<MvStk> mvStks ;

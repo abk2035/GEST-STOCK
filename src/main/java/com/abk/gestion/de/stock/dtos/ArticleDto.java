@@ -5,9 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 import java.util.List;
 
 @Builder
@@ -27,18 +25,21 @@ public class ArticleDto {
 
     private  double tauxTva ;
 
+    private Long idEntreprise ;
 
-    private Category category ;
 
-    List<LigneCommandeClient> ligneCommandeClients ;
+    private CategoryDto category ;
 
-    List<LigneCommandeFournisseur> ligneCommandeFournisseurs ;
+    List<LigneCommandeClientDto> ligneCommandeClients ;
+
+    List<LigneCommandeFournisseurDto> ligneCommandeFournisseurs ;
 
     List<MvStk> mvStks ;
 
     public static ArticleDto fromArticle (Article article){
         return  ArticleDto.builder()
                 .id(article.getId())
+                .idEntreprise(article.getIdEntreprise())
                 .codeArticle(article.getCodeArticle())
                 .designation(article.getDesignation())
                 .build() ;

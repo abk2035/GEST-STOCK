@@ -1,12 +1,9 @@
 package com.abk.gestion.de.stock.dtos;
 
-import com.abk.gestion.de.stock.entities.AbstractEntity;
-import com.abk.gestion.de.stock.entities.LigneVente;
+import com.abk.gestion.de.stock.entities.Vente;
 import lombok.*;
+import org.springframework.beans.BeanUtils;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import java.time.Instant;
 import java.util.List;
 
@@ -17,6 +14,7 @@ import java.util.List;
 public class VenteDto {
     private Long id ;
 
+    private Long idEntreprise ;
 
     private String code ;
 
@@ -24,5 +22,21 @@ public class VenteDto {
 
     private String commentaire ;
 
-    private List<LigneVenteDto> ligneVentesDto ;
+    private List<LigneVentesDto> ligneVentes ;
+
+    public static VenteDto fromEntity(Vente vente){
+        return  VenteDto.builder()
+                .id(vente.getId())
+                .idEntreprise(vente.getIdEntreprise())
+                .code(vente.getCode())
+                .commentaire(vente.getCommentaire())
+                .dateVente(vente.getDateVente())
+                .build();
+    }
+
+    public static Vente fromDto(VenteDto venteDto){
+        Vente vente = new Vente();
+        BeanUtils.copyProperties(venteDto,vente);
+        return vente ;
+    }
 }
